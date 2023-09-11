@@ -1,0 +1,521 @@
+[
+    {
+        "id": "4ab1972711077e11",
+        "type": "tab",
+        "label": "Flow 1",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "bbfb77d3425db5b8",
+        "type": "tab",
+        "label": "Flow 2",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "f319d7a5ab3ff750",
+        "type": "cloudantplus",
+        "host": "https://apikey-v2-1sf2n1o95m2vpr2jfg0nc12cqd076yoyoopnhgjzuh5o:a7b29644e36c2dd9ed66686c4203c23b@8472bb0f-4f34-4675-bd25-3cf7a52343d1-bluemix.cloudantnosqldb.appdomain.cloud",
+        "name": "",
+        "useapikey": true
+    },
+    {
+        "id": "dc7c9ade439284d1",
+        "type": "ui_tab",
+        "name": "Umidade",
+        "icon": "dashboard",
+        "disabled": false,
+        "hidden": false
+    },
+    {
+        "id": "cfb472542583fd2d",
+        "type": "ui_base",
+        "theme": {
+            "name": "theme-light",
+            "lightTheme": {
+                "default": "#0094CE",
+                "baseColor": "#0094CE",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif",
+                "edited": true,
+                "reset": false
+            },
+            "darkTheme": {
+                "default": "#097479",
+                "baseColor": "#097479",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif",
+                "edited": false
+            },
+            "customTheme": {
+                "name": "Untitled Theme 1",
+                "default": "#4B7930",
+                "baseColor": "#4B7930",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif"
+            },
+            "themeState": {
+                "base-color": {
+                    "default": "#0094CE",
+                    "value": "#0094CE",
+                    "edited": false
+                },
+                "page-titlebar-backgroundColor": {
+                    "value": "#0094CE",
+                    "edited": false
+                },
+                "page-backgroundColor": {
+                    "value": "#fafafa",
+                    "edited": false
+                },
+                "page-sidebar-backgroundColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "group-textColor": {
+                    "value": "#1bbfff",
+                    "edited": false
+                },
+                "group-borderColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "group-backgroundColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "widget-textColor": {
+                    "value": "#111111",
+                    "edited": false
+                },
+                "widget-backgroundColor": {
+                    "value": "#0094ce",
+                    "edited": false
+                },
+                "widget-borderColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "base-font": {
+                    "value": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif"
+                }
+            },
+            "angularTheme": {
+                "primary": "indigo",
+                "accents": "blue",
+                "warn": "red",
+                "background": "grey",
+                "palette": "light"
+            }
+        },
+        "site": {
+            "name": "Node-RED Dashboard",
+            "hideToolbar": "false",
+            "allowSwipe": "false",
+            "lockMenu": "false",
+            "allowTempTheme": "true",
+            "dateFormat": "DD/MM/YYYY",
+            "sizes": {
+                "sx": 48,
+                "sy": 48,
+                "gx": 6,
+                "gy": 6,
+                "cx": 6,
+                "cy": 6,
+                "px": 0,
+                "py": 0
+            }
+        }
+    },
+    {
+        "id": "5258dd23bb9f51ee",
+        "type": "ui_group",
+        "name": "Teste",
+        "tab": "dc7c9ade439284d1",
+        "order": 1,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "4e1b28e4ab981528",
+        "type": "http in",
+        "z": "4ab1972711077e11",
+        "name": "",
+        "url": "/matheussGET",
+        "method": "get",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 110,
+        "y": 120,
+        "wires": [
+            [
+                "32f4031346df86d7"
+            ]
+        ]
+    },
+    {
+        "id": "32f4031346df86d7",
+        "type": "cloudantplus out",
+        "z": "4ab1972711077e11",
+        "name": "",
+        "cloudant": "f319d7a5ab3ff750",
+        "database": "matheuss",
+        "service": "_ext_",
+        "payonly": true,
+        "operation": "insert",
+        "x": 320,
+        "y": 120,
+        "wires": [
+            [
+                "e2155f37d620e2b1",
+                "781ebf93bb4754e6"
+            ]
+        ]
+    },
+    {
+        "id": "e2155f37d620e2b1",
+        "type": "http response",
+        "z": "4ab1972711077e11",
+        "name": "",
+        "statusCode": "",
+        "headers": {},
+        "x": 530,
+        "y": 120,
+        "wires": []
+    },
+    {
+        "id": "781ebf93bb4754e6",
+        "type": "debug",
+        "z": "4ab1972711077e11",
+        "name": "debug 1",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 560,
+        "y": 200,
+        "wires": []
+    },
+    {
+        "id": "3252412f87ae52e1",
+        "type": "http in",
+        "z": "4ab1972711077e11",
+        "name": "",
+        "url": "/matheussPOST",
+        "method": "post",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 120,
+        "y": 300,
+        "wires": [
+            [
+                "4a63898559f27827"
+            ]
+        ]
+    },
+    {
+        "id": "4a63898559f27827",
+        "type": "cloudantplus out",
+        "z": "4ab1972711077e11",
+        "name": "",
+        "cloudant": "f319d7a5ab3ff750",
+        "database": "matheuss",
+        "service": "_ext_",
+        "payonly": true,
+        "operation": "insert",
+        "x": 320,
+        "y": 300,
+        "wires": [
+            [
+                "3f1ebcb2cacaa878",
+                "6febffe3e105a2fc"
+            ]
+        ]
+    },
+    {
+        "id": "3f1ebcb2cacaa878",
+        "type": "http response",
+        "z": "4ab1972711077e11",
+        "name": "",
+        "statusCode": "",
+        "headers": {},
+        "x": 530,
+        "y": 300,
+        "wires": []
+    },
+    {
+        "id": "6febffe3e105a2fc",
+        "type": "debug",
+        "z": "4ab1972711077e11",
+        "name": "debug 2",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 560,
+        "y": 380,
+        "wires": []
+    },
+    {
+        "id": "8ed941b4c4742694",
+        "type": "http in",
+        "z": "bbfb77d3425db5b8",
+        "name": "",
+        "url": "/matheusdGET",
+        "method": "get",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 150,
+        "y": 120,
+        "wires": [
+            [
+                "9f409c9d3293c440"
+            ]
+        ]
+    },
+    {
+        "id": "26ee8cad523e6fe5",
+        "type": "http in",
+        "z": "bbfb77d3425db5b8",
+        "name": "",
+        "url": "/matheusdPUT",
+        "method": "put",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 150,
+        "y": 200,
+        "wires": [
+            [
+                "299f12067d7cd0b4"
+            ]
+        ]
+    },
+    {
+        "id": "0fca773d5e442260",
+        "type": "http in",
+        "z": "bbfb77d3425db5b8",
+        "name": "",
+        "url": "/matheusdPOST",
+        "method": "post",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 160,
+        "y": 280,
+        "wires": [
+            [
+                "77d726cb1bcd749b"
+            ]
+        ]
+    },
+    {
+        "id": "be881445db4e0a98",
+        "type": "http in",
+        "z": "bbfb77d3425db5b8",
+        "name": "",
+        "url": "/matheusdDELETE",
+        "method": "delete",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 170,
+        "y": 360,
+        "wires": [
+            [
+                "d9bbf3dd2795d9d0"
+            ]
+        ]
+    },
+    {
+        "id": "17473cfdedf02084",
+        "type": "debug",
+        "z": "bbfb77d3425db5b8",
+        "name": "debug 3",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 640,
+        "y": 160,
+        "wires": []
+    },
+    {
+        "id": "0a827d26b23c44b9",
+        "type": "debug",
+        "z": "bbfb77d3425db5b8",
+        "name": "debug 4",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 640,
+        "y": 240,
+        "wires": []
+    },
+    {
+        "id": "67c5b24ae35e07dd",
+        "type": "debug",
+        "z": "bbfb77d3425db5b8",
+        "name": "debug 5",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 640,
+        "y": 320,
+        "wires": []
+    },
+    {
+        "id": "aabf43b90b75974e",
+        "type": "debug",
+        "z": "bbfb77d3425db5b8",
+        "name": "debug 6",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 640,
+        "y": 400,
+        "wires": []
+    },
+    {
+        "id": "d4e82c7705dbcb09",
+        "type": "http response",
+        "z": "bbfb77d3425db5b8",
+        "name": "",
+        "statusCode": "",
+        "headers": {},
+        "x": 630,
+        "y": 120,
+        "wires": []
+    },
+    {
+        "id": "e99c65154ddbe537",
+        "type": "http response",
+        "z": "bbfb77d3425db5b8",
+        "name": "",
+        "statusCode": "",
+        "headers": {},
+        "x": 630,
+        "y": 200,
+        "wires": []
+    },
+    {
+        "id": "34490fb89f9a8789",
+        "type": "http response",
+        "z": "bbfb77d3425db5b8",
+        "name": "",
+        "statusCode": "",
+        "headers": {},
+        "x": 630,
+        "y": 280,
+        "wires": []
+    },
+    {
+        "id": "b4aace698adbd5db",
+        "type": "http response",
+        "z": "bbfb77d3425db5b8",
+        "name": "",
+        "statusCode": "",
+        "headers": {},
+        "x": 630,
+        "y": 360,
+        "wires": []
+    },
+    {
+        "id": "9f409c9d3293c440",
+        "type": "cloudantplus in",
+        "z": "bbfb77d3425db5b8",
+        "name": "",
+        "cloudant": "f319d7a5ab3ff750",
+        "database": "matheusd",
+        "service": "_ext_",
+        "search": "_all_",
+        "design": "",
+        "index": "",
+        "x": 380,
+        "y": 120,
+        "wires": [
+            [
+                "d4e82c7705dbcb09",
+                "17473cfdedf02084"
+            ]
+        ]
+    },
+    {
+        "id": "299f12067d7cd0b4",
+        "type": "cloudantplus out",
+        "z": "bbfb77d3425db5b8",
+        "name": "",
+        "cloudant": "f319d7a5ab3ff750",
+        "database": "matheusd",
+        "service": "_ext_",
+        "payonly": true,
+        "operation": "insert",
+        "x": 380,
+        "y": 200,
+        "wires": [
+            [
+                "e99c65154ddbe537",
+                "0a827d26b23c44b9"
+            ]
+        ]
+    },
+    {
+        "id": "77d726cb1bcd749b",
+        "type": "cloudantplus out",
+        "z": "bbfb77d3425db5b8",
+        "name": "",
+        "cloudant": "f319d7a5ab3ff750",
+        "database": "matheusd",
+        "service": "_ext_",
+        "payonly": true,
+        "operation": "insert",
+        "x": 380,
+        "y": 280,
+        "wires": [
+            [
+                "34490fb89f9a8789",
+                "67c5b24ae35e07dd"
+            ]
+        ]
+    },
+    {
+        "id": "d9bbf3dd2795d9d0",
+        "type": "cloudantplus out",
+        "z": "bbfb77d3425db5b8",
+        "name": "",
+        "cloudant": "f319d7a5ab3ff750",
+        "database": "matheusd",
+        "service": "_ext_",
+        "payonly": true,
+        "operation": "delete",
+        "x": 380,
+        "y": 360,
+        "wires": [
+            [
+                "b4aace698adbd5db",
+                "aabf43b90b75974e"
+            ]
+        ]
+    }
+]
